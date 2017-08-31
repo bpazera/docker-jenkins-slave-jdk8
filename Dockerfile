@@ -1,4 +1,4 @@
-FROM oberthur/docker-ubuntu-java:jdk8_full_8.131.11
+FROM oberthur/docker-ubuntu-java:openjdk-8u131b11_V2
 
 ENV SWARM_VERSION=3.3 \
   GRADLE_VERSION=3.5 \
