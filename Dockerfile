@@ -26,7 +26,7 @@ RUN curl -L http://debian.datastax.com/debian/repo_key | apt-key add - \
 
   # Make sure the package repository is up to date.
   && apt-get update \
-  && apt-get install -y git supervisor openssh-client zip unzip wget bzip2 nodejs npm gitstats python-yaml python-jinja2 cassandra-tools rsync mariadb-client  \
+  && apt-get install -y git supervisor openssh-client zip unzip wget bzip2 nodejs npm gitstats python-yaml python-jinja2 cassandra-tools rsync mariadb-client iproute2 \
   && npm install npm -g \
   && npm install -g bower \
   && ln -s /usr/bin/nodejs /usr/bin/node \
@@ -43,6 +43,9 @@ RUN curl -L http://debian.datastax.com/debian/repo_key | apt-key add - \
 
   # adding BUILD-TOOLS
   && apt-get install -y build-essential \
+
+	#install protoc
+	&& apt-get install -y protobuf-compiler=2.6.1* \
 
   # adding docker-in-docker
   && mkdir -p $DOCKER_PATH \
